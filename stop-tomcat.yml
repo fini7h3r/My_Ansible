@@ -1,0 +1,14 @@
+---
+- name: Stop tomcat
+  hosts: all
+  become: true 
+  tasks:
+    - name: Stop tomcat on RHEL
+      shell: nohup ./shutdown.sh
+      args:
+        chdir: /opt/apache-tomcat-8.5.68/bin
+
+    - name: Stop tomcat on Ubuntu
+      shell: nohup ./shutdown.sh
+      args:
+        chdir: /opt/apache-tomcat-8.5.68/bin
